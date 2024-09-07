@@ -6,7 +6,7 @@ data class Usuario(val nome: String)
 
 data class ConteudoEducacional(val nome: String, val duracao: Int = 60)
 
-data class Formacao(val nome: String, var conteudos: MutableList<ConteudoEducacional>) {
+data class Formacao(val nome: String, var conteudos: MutableList<ConteudoEducacional>, val nivel:Nivel=Nivel.BASICO) {
 
     val inscritos = mutableListOf<Usuario>()
     
@@ -25,7 +25,7 @@ fun main() {
     //TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
     val variaveis = ConteudoEducacional("Lidando com variaveis")
     val desvios = ConteudoEducacional("Desvios condicionais",120)
-    val cursoPython  = Formacao( "Python", mutableListOf(variaveis,desvios))
+    val cursoPython  = Formacao( "Python", mutableListOf(variaveis,desvios),Nivel.INTERMEDIARIO)
     val aluno = Usuario("Joao")
     cursoPython.matricular(aluno)
     
